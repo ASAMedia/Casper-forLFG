@@ -1,100 +1,110 @@
-{{!< default}}
-
-{{!-- The tag above means: insert everything in this file
-into the {body} tag of the default.hbs template --}}
-
-
-{{#post}}
-{{!-- Everything inside the #post block pulls data from the post --}}
-
-<main id="site-main" class="site-main">
-<article class="article {{post_class}} {{#match @custom.post_image_style "Full"}}image-full{{else match @custom.post_image_style "=" "Small"}}image-small{{/match}}">
-
-    <header class="article-header gh-canvas">
-
-        <div class="article-tag post-card-tags">
-            {{#primary_tag}}
-                <span class="post-card-primary-tag">
-                    <a href="{{url}}">{{name}}</a>
-                </span>
-            {{/primary_tag}}
-            {{#if featured}}
-                <span class="post-card-featured">{{> "icons/fire"}} Featured</span>
-            {{/if}}
-        </div>
-
-        <h1 class="article-title">{{title}}</h1>
-
-        {{#if custom_excerpt}}
-            <p class="article-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
-
-        <div class="article-byline">
-        <section class="article-byline-content">
-
-            <ul class="author-list">
-                {{#foreach authors}}
-                <li class="author-list-item">
-                    {{#if profile_image}}
-                    <a href="{{url}}" class="author-avatar">
-                        <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
-                    </a>
-                    {{else}}
-                    <a href="{{url}}" class="author-avatar author-profile-image">{{> "icons/avatar"}}</a>
-                    {{/if}}
-                </li>
-                {{/foreach}}
-            </ul>
-
-            <div class="article-byline-meta">
-                <h4 class="author-name">{{authors}}</h4>
-                <div class="byline-meta-content">
-                    <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
-                </div>
-            </div>
-
-        </section>
-        </div>
-
-        {{#match @custom.post_image_style "!=" "Hidden"}}
-        {{#if feature_image}}
-            <figure class="article-image">
-                {{!-- This is a responsive image, it loads different sizes depending on device
-                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-                <img
-                    srcset="{{img_url feature_image size="s"}} 300w,
-                            {{img_url feature_image size="m"}} 600w,
-                            {{img_url feature_image size="l"}} 1000w,
-                            {{img_url feature_image size="xl"}} 2000w"
-                    sizes="(min-width: 1400px) 1400px, 92vw"
-                    src="{{img_url feature_image size="xl"}}"
-                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                />
-                {{#if feature_image_caption}}
-                    <figcaption>{{feature_image_caption}}</figcaption>
-                {{/if}}
-            </figure>
-        {{/if}}
-        {{/match}}
-
+{{!< default}} {{!-- The tag above means: insert everything in this file into the {body} tag of the default.hbs template
+    --}} <header class="site-header outer">
+    <div class="inner">
+        {{!-"site-nav"}}
+    </div>
     </header>
 
-    <section class="gh-content gh-canvas">
-        {{content}}
-    </section>
+    {{#post}}
+    {{!-- Everything inside the #post block pulls data from the post --}}
 
-    {{#if comments}}
-        <section class="article-comments gh-canvas">
-            {{comments}}
-        </section>
-    {{/if}}
+    <main id="site-main" class="site-main outer">
+        <div class="inner">
 
-</article>
-</main>
+            <article class="post-full {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+                {{#match @page.show_title_and_feature_image}}
+                <header class="post-full-header">
+                    <section class="post-full-meta">
+                        <time class="post-full-meta-date" datetime="{{date format=" YYYY-MM-DD"}}">{{date format="D MMMM
+                            YYYY"}}</time>
+                        {{#primary_tag}}
+                        <span class="date-divider">/</span> <a>{{name}}</a>
+                        {{/primary_tag}}
+                    </section>
+                    <h1 class="post-full-title">{{title}}</h1>
+                </header>
 
+                {{#if feature_image}}
+                <figure class="post-full-image">
+                    {{!-- This is a responsive image, it loads different sizes depending on device
+                    https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433
+                    --}}
+                    <img srcset="{{img_url feature_image size=" s"}} 300w, {{img_url feature_image size="m" }} 600w,
+                        {{img_url feature_image size="l" }} 1000w, {{img_url feature_image size="xl" }} 2000w" sizes="(max-width: 800px) 400px,
+                            (max-width: 1170px) 700px,
+                            1400px" src="{{img_url feature_image size=" xl"}}" alt="{{title}}" />
+                </figure>
+                {{/if}}
+                {{/match}}
+                <section class="post-full-content">
+                    <div class="post-content">
+                        {{content}}
+                    </div>
+                </section>
 
-{{!-- Read more links, just above the footer --}}
-{{#if @custom.show_recent_posts_footer}}
+                {{!-- Email subscribe form at the bottom of the page --}}
+                {{#if @labs.subscribers}}
+                <section class="subscribe-form">
+                    <h3 class="subscribe-form-title">Subscribe to {{@site.title}}</h3>
+                    <p>Get the latest posts delivered right to your inbox</p>
+                    {{subscribe_form placeholder="youremail@example.com"}}
+                </section>
+                {{/if}}
+
+                <footer class="post-full-footer">
+
+                    {{!-- There are two options for how we display the byline/author-info.
+                    If the post has more than one author, we load a specific template
+                    from includes/byline-multiple.hbs, otherwise, we just use the
+                    default byline. --}}
+                    <div class="article-byline">
+                        <section class="article-byline-content">
+
+                            <ul class="author-list">
+                                {{#foreach authors}}
+                                <li class="author-list-item">
+                                    {{#if profile_image}}
+                                    <a href="{{url}}" class="author-avatar">
+                                        <img class="author-profile-image" src="{{img_url profile_image size=" xs"}}"
+                                            alt="{{name}}" />
+                                    </a>
+                                    {{else}}
+                                    <a href="{{url}}" class="author-avatar author-profile-image">{{>
+                                        "icons/avatar"}}</a>
+                                    {{/if}}
+                                </li>
+                                {{/foreach}}
+                            </ul>
+
+                            <div class="article-byline-meta">
+                                <h4 class="author-name">Veröffentlicht von:<br>{{authors}}</h4>
+                                <div class="byline-meta-content">
+                                    <time class="byline-meta-date" datetime="{{date format=" YYYY-MM-DD"}}">{{date
+                                        format="D
+                                        MMMM YYYY"}}</time>
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+
+                </footer>
+
+                {{!--
+                <section class="post-full-comments">
+                    If you want to embed comments, this is a good place to do it!
+                </section>
+                --}}
+
+            </article>
+
+        </div>
+    </main>
+    {{!-- Floating header which appears on-scroll, included from includes/floating-header.hbs --}}
+    {{> floating-header}}
+
+    {{!-- Read more links, just above the footer --}}
+    {{#if @custom.show_recent_posts_footer}}
     {{!-- The {#get} helper below fetches some of the latest posts here
     so that people have something else to read when they finish this one.
 
@@ -102,81 +112,83 @@ into the {body} tag of the default.hbs template --}}
     exclude the post we're currently on from being included. --}}
     {{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
 
-        {{#if more_posts}}
-            <aside class="read-more-wrap outer">
-                <div class="read-more inner">
-                    {{#foreach more_posts}}
-                        {{> "post-card"}}
-                    {{/foreach}}
-                </div>
-            </aside>
-        {{/if}}
+    {{#if more_posts}}
+    <aside class="read-more-wrap outer">
+        <div class="read-more inner">
+            {{#foreach more_posts}}
+            {{> "post-card"}}
+            {{/foreach}}
+        </div>
+    </aside>
+    {{/if}}
 
     {{/get}}
-{{/if}}
+    {{/if}}
 
-{{/post}}
-<script>
+    {{/post}}
+    {{#contentFor "scripts"}}
+    <script>
+        // NOTE: Scroll performance is poor in Safari
+        // - this appears to be due to the events firing much more slowly in Safari.
+        //   Dropping the scroll event and using only a raf loop results in smoother
+        //   scrolling but continuous processing even when not scrolling
+        $(document).ready(function () {
+            console.log("ready!");
+            // Start fitVids
+            var $postContent = $(".post-full-content");
+            $postContent.fitVids();
+            // End fitVids
 
-// NOTE: Scroll performance is poor in Safari
-// - this appears to be due to the events firing much more slowly in Safari.
-//   Dropping the scroll event and using only a raf loop results in smoother
-//   scrolling but continuous processing even when not scrolling
-$(document).ready(function () {
-    // Start fitVids
-    var $postContent = $(".post-full-content");
-    $postContent.fitVids();
-    // End fitVids
+            var progressBar = document.querySelector('#reading-progress');
+            var header = document.querySelector('.floating-header');
+            var title = document.querySelector('.post-full-title');
 
-    var progressBar = document.querySelector('#reading-progress');
-    var header = document.querySelector('.floating-header');
-    var title = document.querySelector('.post-full-title');
+            var lastScrollY = window.scrollY;
+            var lastWindowHeight = window.innerHeight;
+            var lastDocumentHeight = $(document).height();
+            var ticking = false;
 
-    var lastScrollY = window.scrollY;
-    var lastWindowHeight = window.innerHeight;
-    var lastDocumentHeight = $(document).height();
-    var ticking = false;
+            function onScroll() {
+                lastScrollY = window.scrollY;
+                requestTick();
+            }
 
-    function onScroll() {
-        lastScrollY = window.scrollY;
-        requestTick();
-    }
+            function onResize() {
+                lastWindowHeight = window.innerHeight;
+                lastDocumentHeight = $(document).height();
+                requestTick();
+            }
 
-    function onResize() {
-        lastWindowHeight = window.innerHeight;
-        lastDocumentHeight = $(document).height();
-        requestTick();
-    }
+            function requestTick() {
+                if (!ticking) {
+                    requestAnimationFrame(update);
+                }
+                ticking = true;
+            }
 
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(update);
-        }
-        ticking = true;
-    }
+            function update() {
+                var trigger = title.getBoundingClientRect().top + window.scrollY;
+                var triggerOffset = title.offsetHeight + 35;
+                var progressMax = lastDocumentHeight - lastWindowHeight;
 
-    function update() {
-        var trigger = title.getBoundingClientRect().top + window.scrollY;
-        var triggerOffset = title.offsetHeight + 35;
-        var progressMax = lastDocumentHeight - lastWindowHeight;
+                // show/hide floating header
+                //if (lastScrollY >= trigger + triggerOffset) {
+                //    header.classList.add('floating-active');
+                //} else {
+                //    header.classList.remove('floating-active');
+                //}
 
-        // show/hide floating header
-        //if (lastScrollY >= trigger + triggerOffset) {
-        //    header.classList.add('floating-active');
-        //} else {
-        //    header.classList.remove('floating-active');
-        //}
+                progressBar.setAttribute('max', progressMax);
+                progressBar.setAttribute('value', lastScrollY);
 
-        progressBar.setAttribute('max', progressMax);
-        progressBar.setAttribute('value', lastScrollY);
+                ticking = false;
+            }
 
-        ticking = false;
-    }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onResize, false);
 
-    window.addEventListener('scroll', onScroll, {passive: true});
-    window.addEventListener('resize', onResize, false);
+            update();
 
-    update();
-
-});
-</script>
+        });
+    </script>
+    {{/contentFor}}

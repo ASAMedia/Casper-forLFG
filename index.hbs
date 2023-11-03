@@ -1,70 +1,61 @@
-{{!< default}}
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-{{> "site-nav"}}
-{{!--<div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
+{{!< default}} {{!-- The tag above means: insert everything in this file into the {body} of the default.hbs template
+    --}} {{> "site-nav"}}
 
-    {{#if @custom.show_publication_cover}}
-        {{#if @site.cover_image}}
-            {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-            <img class="site-header-cover"
-                srcset="{{img_url @site.cover_image size="s"}} 300w,
-                        {{img_url @site.cover_image size="m"}} 600w,
-                        {{img_url @site.cover_image size="l"}} 1000w,
-                        {{img_url @site.cover_image size="xl"}} 2000w"
-                sizes="100vw"
-                src="{{img_url @site.cover_image size="xl"}}"
-                alt="{{@site.title}}"
-            />
-        {{/if}}
-    {{/if}}
+    {{!-- The main content area --}}
+    <div class="content">
+        <div class="container"> <br>
+            <!-- InstanceBeginEditable name="content" -->
+            <div class="row">
+                <div class="left-content">
 
-    {{#match @custom.header_style "!=" "Hidden"}}
-        <div class="site-header-inner inner">
-            {{#match @custom.navigation_layout "Logo on cover"}}
-                {{#if @site.logo}}
-                    <img class="site-logo" src="{{@site.logo}}" alt="{{@site.title}}">
-                {{else}}
-                    <h1 class="site-title">{{@site.title}}</h1>
-                {{/if}}
-            {{/match}}
-            {{#if @site.description}}
-                <p class="site-description">{{@site.description}}</p>
-            {{/if}}
-        </div>
-    {{/match}}
+                    <div class="post-feed">
+                        {{!--<!--article class="post-card post tag-news post-card-large"
+                            style="background-color: rgba(252, 141, 67, 0.65);border: solid 2px rgba(255, 111, 37, 0.65);max-height: 270px;min-height: 270px;">
+                            <a class="post-card-image-link"
+                                href="https://bildung.thueringen.de/ministerium/coronavirus/" target="_blank">
+                                <img class="post-card-image" sizes="(max-width: 1000px) 400px, 700px"
+                                    src="https://images.unsplash.com/photo-1581726707445-75cbe4efc586?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=2000&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ"
+                                    alt="Informationen zum Schulstart"
+                                    srcset="https://bildung.thueringen.de/fileadmin/2020/2020-04-27_start_abiklassen_ohrdruf__6_.jpg">
+                            </a>
 
-</div>--}}
+                            <div class="post-card-content">
 
-{{!-- The main content area --}}
-<main id="site-main" class="site-main outer content">
-    <div class="container"> <br>
-        <div class="row">
-            <div class="inner posts left-content">
+                                <a class="post-card-content-link"
+                                    href="https://bildung.thueringen.de/ministerium/coronavirus/" target="_blank">
 
-                <div class="post-feed">
-                    {{#foreach posts}}
-                    {{#has tag="news"}}
-                    {{> "post-card"}}
-                    {{/has}}
-                    {{/foreach}}
+                                    <header class="post-card-header">
+                                        <h2 class="post-card-title">Corona-Informationen des TMBJS</h2>
+                                    </header>
+
+                                    <section class="post-card-excerpt">
+                                        <p>Aktuelles zur Lage an Thüringer Schulen</p>
+                                    </section>
+                                </a>
+                                <footer class="post-card-meta" style="min-height: 5em;">
+                                    <time class="post-full-meta-date" datetime="2020-08-31">Aktuell</time>
+                                </footer>
+                            </div>
+                        </article-->--}}
+                        {{#foreach posts}}
+                        {{#has tag="news"}}
+                        {{> "post-card"}}
+                        {{/has}}
+                        {{/foreach}}
+                    </div>
+
                 </div>
-                {{pagination}}
-            </div>
-            <div class="right-submenu">
-                <div class="submenu">
-                    <a href="content/images/kalender_big.jpg?v={{date format=" MM"}}" target="_blank">
-                        <img src="content/images/kalender_small.jpg?v={{date format=" MM"}}" alt="kalender"
-                            width="100%">
-                    </a>
-                    <a href="https://tour.lyonel-feininger-gymnasium.de/" target="_blank">
-                        <img alt="tour" src="content/images/virtuellerSchulrundgang.jpg" width="100%"></a>
+                <div class="right-submenu">
+                    <div class="submenu">
+                        <a href="content/images/kalender_big.jpg?v={{date format=" MM"}}" target="_blank">
+                            <img src="content/images/kalender_small.jpg?v={{date format=" MM"}}" alt="kalender"
+                                width="100%">
+                        </a>
+                        <a href="https://tour.lyonel-feininger-gymnasium.de/" target="_blank">
+                            <img alt="tour" src="content/images/virtuellerSchulrundgang.jpg" width="100%"></a>
+                    </div>
                 </div>
             </div>
+            <!-- InstanceEndEditable -->
         </div>
-
-
     </div>
-    </div>
-</main>

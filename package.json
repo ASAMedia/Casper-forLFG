@@ -1,7 +1,7 @@
 {
-    "name": "casper",
-    "description": "A clean, minimal default theme for the Ghost publishing platform",
-    "demo": "https://demo.ghost.io",
+    "name": "lfgwebsitedesign",
+    "description": "Theme for LFG school homepage",
+    "demo": "https://lyonel-feininger-gymnasium.de/",
     "version": "5.7.0",
     "engines": {
         "ghost": ">=5.0.0"
@@ -89,15 +89,6 @@
         },
         "card_assets": true,
         "custom": {
-            "navigation_layout": {
-                "type": "select",
-                "options": [
-                    "Logo on cover",
-                    "Logo in the middle",
-                    "Stacked"
-                ],
-                "default": "Logo on cover"
-            },
             "title_font": {
                 "type": "select",
                 "options": [
@@ -157,11 +148,6 @@
                     "Hidden"
                 ],
                 "default": "Wide",
-                "group": "post"
-            },
-            "email_signup_text": {
-                "type": "text",
-                "default": "Sign up for more like this.",
                 "group": "post"
             },
             "show_recent_posts_footer": {
