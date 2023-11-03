@@ -224,7 +224,7 @@ production stylesheet in assets/built/screen.css
 :is(.site-logo, .site-title)+.site-description {
     max-width: 640px;
     margin-top: 16px;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 400;
     line-height: 1.4;
 }
@@ -880,7 +880,6 @@ production stylesheet in assets/built/screen.css
     grid-template-columns: repeat(6, 1fr);
     margin-top: 0px;
     padding-top: 0px;
-    z-index: -1;
 }
 
 :is(.tag-template, .author-template) .post-feed {
@@ -1148,7 +1147,6 @@ production stylesheet in assets/built/screen.css
 
 .page-template .site-main,
 .post-template .site-main {
-    padding-bottom: 4vw;
     margin: 0 auto;
 }
 
@@ -1446,50 +1444,50 @@ production stylesheet in assets/built/screen.css
 }
 
 .post-full-content h1 {
-    margin: .5em 0 .2em;
-    font-size: 4.6rem;
+    margin: 1em 0 .2em;
+    font-size: 2.8rem;
     font-weight: 700
 }
 
 @media (max-width:500px) {
     .post-full-content h1 {
-        font-size: 2.8rem
+        font-size: 2.6rem
     }
 }
 
 .post-full-content h2 {
     margin: .5em 0 .2em;
-    font-size: 3.6rem;
+    font-size: 2.4rem;
     font-weight: 700
 }
 
 @media (max-width:500px) {
     .post-full-content h2 {
-        font-size: 2.6rem
+        font-size: 2.4rem
     }
 }
 
 .post-full-content h3 {
     margin: .5em 0 .2em;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 700
 }
 
 @media (max-width:500px) {
     .post-full-content h3 {
-        font-size: 2.2rem
+        font-size: 2.0rem
     }
 }
 
 .post-full-content h4 {
     margin: .5em 0 .2em;
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 700
 }
 
 @media (max-width:500px) {
     .post-full-content h4 {
-        font-size: 2.2rem
+        font-size: 2.0rem
     }
 }
 
@@ -1500,7 +1498,7 @@ production stylesheet in assets/built/screen.css
     border: 0;
     color: #3eb0ef;
     font-family: Georgia, serif;
-    font-size: 3.2rem;
+    font-size: 1.9rem;
     line-height: 1.35em;
     text-align: center
 }
@@ -1515,19 +1513,19 @@ production stylesheet in assets/built/screen.css
 @media (max-width:500px) {
     .post-full-content h5 {
         padding: 0 0 .5em;
-        font-size: 2.2rem
+        font-size: 1.9rem
     }
 }
 
 .post-full-content h6 {
     margin: .5em 0 .2em;
-    font-size: 2.3rem;
+    font-size: 1.7rem;
     font-weight: 700
 }
 
 @media (max-width:500px) {
     .post-full-content h6 {
-        font-size: 2rem
+        font-size: 1.6rem
     }
 }
 
@@ -1704,7 +1702,7 @@ html.no-infinite-scroll .pagination {
 }
 
 .page-template .article-header {
-    padding: max(12vmin, 64px) 0 max(3.2vmin, 28px);
+    padding: max(1vmin,34px) 0 max(2.2vmin,28px)
 }
 
 .article-tag {
@@ -1811,15 +1809,7 @@ created within the Ghost editor. The main content handles
 headings, text, images and lists. We deal with cards lower down. */
 
 /* Default vertical spacing */
-.gh-content>*+* {
-    margin-top: max(3.2vmin, 24px);
-    margin-bottom: 0;
-}
 
-/* Remove space between full-width cards */
-.gh-content>.kg-width-full+.kg-width-full:not(.kg-width-full.kg-card-hascaption + .kg-width-full) {
-    margin-top: 0;
-}
 
 /* [id] represents all headings h1-h6, reset all margins */
 .gh-content>[id] {
@@ -1829,17 +1819,6 @@ headings, text, images and lists. We deal with cards lower down. */
 
 .has-serif-title .gh-content>[id] {
     font-family: var(--font-serif);
-}
-
-/* Add back a top margin to all headings, unless a heading
-is the very first element in the post content */
-.gh-content>[id]:not(:first-child) {
-    margin: 2em 0 0;
-}
-
-/* Add a small margin between a heading and anything after it */
-.gh-content>[id]+* {
-    margin-top: 1.5rem !important;
 }
 
 /* A larger margin before/after HRs and blockquotes */
@@ -1861,27 +1840,8 @@ is the very first element in the post content */
     word-break: break-word;
 }
 
-.gh-content>blockquote:not([class]),
-.gh-content>ol,
-.gh-content>ul,
-.gh-content>dl,
-.gh-content>p {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 1.6em;
-}
-
 .gh-content>p img {
     margin: 0 auto;
-}
-
-.page-template .gh-content:only-child>*:first-child:not(.kg-width-full) {
-    margin-top: max(12vmin, 64px);
-}
-
-.page-template .gh-content>*:last-child:not(.kg-width-full) {
-    margin-bottom: max(12vmin, 64px);
 }
 
 .gh-content .kg-callout-card .kg-callout-text,
@@ -1889,25 +1849,18 @@ is the very first element in the post content */
 .gh-content .kg-toggle-card .kg-toggle-content>ul,
 .gh-content .kg-toggle-card .kg-toggle-content>p {
     font-family: var(--font-serif);
-    font-weight: 400;
-    font-size: 1.9rem;
-    line-height: 1.6em;
 }
 
 .gh-content .kg-product-card .kg-product-card-description>p,
 .gh-content .kg-product-card .kg-product-card-description>ol,
 .gh-content .kg-product-card .kg-product-card-description>ul {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     line-height: 1.6em;
 }
 
 .gh-content .kg-callout-card .kg-callout-emoji {
-    font-size: 2.1rem;
+    font-size: 1.9rem;
     line-height: 1.4em;
-}
-
-.gh-content .kg-toggle-card .kg-toggle-heading-text {
-    font-size: 2.0rem;
 }
 
 .has-sans-body .gh-content>blockquote,
@@ -2105,6 +2058,10 @@ iframe.instagram-media+script+ :not([id]) {
 /* Card captions
 /* ---------------------------------------------------------- */
 
+.kg-card{
+    margin: 10px 0;
+}
+
 .kg-width-full.kg-card-hascaption {
     display: grid;
     grid-template-columns: inherit;
@@ -2148,52 +2105,6 @@ iframe.instagram-media+script+ :not([id]) {
 }
 
 /* Tables */
-.gh-content table:not(.gist table) {
-    display: inline-block;
-    overflow-x: auto;
-    max-width: 100%;
-    width: auto;
-    border-spacing: 0;
-    border-collapse: collapse;
-    font-family: var(--font-sans);
-    font-size: 1.6rem;
-    white-space: nowrap;
-    vertical-align: top;
-    -webkit-overflow-scrolling: touch;
-    background: radial-gradient(ellipse at left, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 0 center, radial-gradient(ellipse at right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 75%) 100% center;
-    background-attachment: scroll, scroll;
-    background-size: 10px 100%, 10px 100%;
-    background-repeat: no-repeat;
-}
-
-.gh-content table:not(.gist table) td:first-child {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-}
-
-.gh-content table:not(.gist table) td:last-child {
-    background-image: linear-gradient(to left, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-    background-position: 100% 0;
-    background-size: 20px 100%;
-    background-repeat: no-repeat;
-}
-
-.gh-content table:not(.gist table) th {
-    color: var(--color-darkgrey);
-    font-size: 1.2rem;
-    font-weight: 700;
-    letter-spacing: 0.2px;
-    text-align: left;
-    text-transform: uppercase;
-    background-color: color-mod(var(--color-wash) l(+4%));
-}
-
-.gh-content table:not(.gist table) th,
-.gh-content table:not(.gist table) td {
-    padding: 6px 12px;
-    border: color-mod(var(--color-wash) l(-1%) s(-5%)) 1px solid;
-}
 
 
 /* 6.1. Post Byline
@@ -3534,6 +3445,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    z-index: 1;
 }
 
 nav>ul>li>ul>li {
@@ -4546,6 +4458,110 @@ Css for side menu
     .floating-header-share-label {
         display: none;
     }
+}
+
+
+/*
+    Css for post cards
+*/
+.kg-toggle-card {
+    background:0 0 !important;
+    box-shadow:inset 0 0 0 1px rgba(124,139,154,.25) !important;
+    border-radius:0.2em !important;
+    padding:0em !important;
+    background-color: rgba(119, 188, 95, 0.45) !important;
+    margin-top: 1em !important;
+    border-color: lightslategrey !important;
+    border-style: solid !important;
+    border-width: thin !important;
+}
+.kg-toggle-heading svg {
+    color:rgb(0, 0, 0) !important;
+}
+.kg-toggle-content {
+    background: rgba(230, 250, 250, 0.85) !important;
+    padding-left: 1em !important;
+    padding-top: 0.5em !important;
+}
+.kg-toggle-content p{
+    margin: 0 !important;
+}
+.kg-toggle-heading {
+    margin: 0.3em !important;
+    padding: 0.4em !important;
+    text-decoration: none !important;
+    color: black !important;
+}   
+.kg-toggle-heading-text{
+    min-width: 95% !important;
+}
+.kg-toggle-card[data-kg-toggle-state="close"] .kg-toggle-content {
+    padding-top: 0em !important;
+}
+
+
+/*Custom Table*/
+
+.post-full-content table {
+    display: inline-block;
+    overflow-x: auto;
+    margin: .5em 0 2.5em;
+    max-width: 100%;
+    width: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+    font-size: 1.6rem;
+    vertical-align: top;
+    -webkit-overflow-scrolling: touch;
+    background-attachment: scroll, scroll;
+    background-size: 10px 100%, 10px 100%;
+    background-repeat: no-repeat
+}
+
+.post-full-content table td:first-child {
+    background-size: 20px 100%;
+    background-repeat: no-repeat
+}
+
+.post-full-content table td:last-child {
+    background-position: 100% 0;
+    background-size: 20px 100%;
+    background-repeat: no-repeat
+}
+
+.post-full-content table th {
+    color: #15171a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .2px;
+    text-align: left;
+    text-transform: uppercase;
+    background-color: #f4f8fba1
+}
+
+.post-full-content table td,
+.post-full-content table th {
+    padding: 6px 12px;
+    border: 1px solid #bcc4ca
+}
+
+
+/*related wrapper*/
+
+.related-wrapper {
+    padding-top: 48px;
+    padding-bottom: 64px;
+    margin-top: 96px;
+    background-color: var(--color-lightgrey);
+}
+
+.related-title {
+    margin: 20px 0 40px;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /*

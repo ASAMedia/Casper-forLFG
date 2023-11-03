@@ -11,6 +11,7 @@ following a broken link
 Keep this template as lightweight as you can!
 
 --}}
+{{> "site-nav"}}
 
 <section class="outer error-content">
     <div class="inner">
@@ -24,7 +25,7 @@ Keep this template as lightweight as you can!
 
 {{!-- Given that people landing on this page didn't find what they
 were looking for, let's give them some alternative stuff to read. --}}
-{{> "site-nav"}}
+
 <aside class="read-more-wrap outer">
     <div class="read-more inner">
         {{#get "posts" include="authors" limit="3" as |more_posts|}}

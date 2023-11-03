@@ -37,7 +37,7 @@
                 {{/if}}
                 {{/match}}
                 <section class="post-full-content">
-                    <div class="post-content">
+                    <div class="post-content gh-content">
                         {{content}}
                     </div>
                 </section>
@@ -113,7 +113,10 @@
     {{#get "posts" filter="id:-{{id}}" limit="3" as |more_posts|}}
 
     {{#if more_posts}}
-    <aside class="read-more-wrap outer">
+    <aside class="related-wrapper read-more-wrap outer">
+        <h3 class="related-title">
+                <span class="text">Das könnte auch interessant sein ...</span>
+            </h3>
         <div class="read-more inner">
             {{#foreach more_posts}}
             {{> "post-card"}}
@@ -136,7 +139,7 @@
             console.log("ready!");
             // Start fitVids
             var $postContent = $(".post-full-content");
-            $postContent.fitVids();
+            //$postContent.fitVids();
             // End fitVids
 
             var progressBar = document.querySelector('#reading-progress');
