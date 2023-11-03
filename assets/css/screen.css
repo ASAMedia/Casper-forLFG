@@ -3020,6 +3020,746 @@ html.dark-mode .footer-cta-title {
     background: none;
 }
 
+/*Custom Layout for LFG-Main*/
+
+
+/* CSS Document */
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav>ul>li>ul>li {
+    position: relative;
+}
+
+nav>ul {
+    float: inherit;
+    overflow: hidden;
+    padding: 0;
+    background: #a5e1ff;
+    max-width: 90%;
+    box-shadow: 0.19em 0.19em 0.19em rgba(0, 0, 0, 0.25);
+}
+
+nav>ul>li>ul {
+    display: none;
+}
+
+nav>ul>li {
+    float: left;
+}
+
+nav>ul a {
+    display: block;
+    white-space: nowrap;
+    padding: 0.45em;
+    background: #a5e1ff;
+}
+
+nav ul>li>ul>li a {
+    background: #c3ebff;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.4em;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5em;
+    width: 100%;
+}
+
+.row .col {
+    float: left;
+    box-sizing: border-box;
+    padding: 0.75em;
+    min-height: 0.1em;
+}
+
+.l3 {
+    width: 33.33%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+
+footer {
+    min-height: 10em;
+    height: auto;
+    width: 100%;
+}
+
+.right {
+    float: right !important;
+}
+
+.right a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    height: auto;
+    width: 100%;
+}
+
+.iframe {
+    border-style: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    min-height: 100px;
+}
+
+.current>a,
+.currentside>a {
+    background: #66ccff;
+}
+
+.mobile {
+    visibility: hidden;
+    display: none;
+    height: 0;
+}
+
+@media (min-width: 815px) {
+    nav>ul>li:hover>a {
+        background: #66ccff;
+    }
+    nav>ul>li>ul>li:hover>a {
+        background: #66ccff;
+        border-top: 0.06em solid #c6c6c6;
+    }
+    nav>ul>li:hover>ul,
+    nav>ul>li:hover>ul {
+        display: block;
+        position: absolute;
+    }
+}
+
+@media (max-width: 570px) {
+    .l3 {
+        width: 100%;
+        margin-left: auto;
+        left: auto;
+        right: auto;
+    }
+}
+
+@media (max-width: 872px),
+( orientation: portrait) {
+    #responsive-iframe {
+        margin-bottom: 5%;
+        width: 100%
+    }
+    nav>ul>li {
+        display: none;
+    }
+    .left-content {
+        width: 100%;
+    }
+    .content {
+        display: inherit;
+    }
+    .popup .content {
+        z-index: 20;
+        height: 90%;
+        width: 98%;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    .right-submenu {
+        width: 100%;
+    }
+    .mobile {
+        visibility: visible;
+        display: inherit;
+    }
+    .current {
+        visibility: visible;
+        display: block;
+        display: contents;
+        width: 90%;
+    }
+    .currentside {
+        visibility: visible;
+    }
+    .current>a,
+    .currentside>a {
+        background: #66ccff;
+        padding-left: 50px;
+    }
+    /*For custom script to make focus-within work in all browsers*/
+    .sidemenu>li[focus-within]>ul,
+    .sidemenu>li:focus>ul,
+    .sidemenu>li:active>ul {
+        display: block;
+        /*position: relative;
+        margin-left: 1em;*/
+    }
+    .sidemenu>li:focus-within>ul,
+    .sidemenu>li:focus>ul,
+    .sidemenu>li:active>ul {
+        display: block;
+        /*position: relative;
+        margin-left: 1em;*/
+    }
+    /*
+
+    Custom mode for IOS
+
+    */
+    @supports (-webkit-overflow-scrolling: touch) {
+        .sidemenu>li:hover>ul,
+        .sidemenu>li:focus-within>ul,
+        .sidemenu>li:focus>ul,
+        .sidemenu>li:active>ul {
+            display: block;
+            /*position: relative;
+            margin-left: 1em;*/
+        }
+    }
+    body {
+        font-size: 1.4em;
+    }
+}
+
+.content {
+    width: 100%;
+    height: 80%;
+    min-height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    float: inherit;
+}
+
+body {
+    height: 100%;
+}
+
+.left {
+    float: left!important;
+}
+
+.left-content {
+    width: 70%;
+    float: left;
+}
+
+.right-submenu {
+    width: 30%;
+    float: left;
+}
+
+.submenu {
+    background: rgba(252, 141, 67, 0.65);
+    padding: 1em;
+    width: 70%;
+    text-align: center;
+    border-radius: 0em 0em 1em 1em;
+    box-shadow: 0.2em 0.2em 1em 0em rgba(202, 91, 17, 0.25);
+    margin: 10px auto;
+}
+
+.expand {
+    border-radius: 0.2em;
+    background-color: rgba(119, 188, 95, 0.45);
+    width: 80%;
+    border-color: lightslategrey;
+    border-style: solid;
+    border-width: thin;
+    margin-top: 1em;
+    text-decoration: none;
+}
+
+.wrapper a,
+.kg-toggle-content a,
+.expand>div>ul>li a,
+.kg-toggle-card>div>ul>li a {
+    text-decoration: inherit;
+    color: rgba(255, 121, 0, 1.00);
+    text-shadow: 0.03em 0.03em;
+}
+
+.kg-toggle-card-icon{
+    margin-left: 0 !important;
+}
+
+.wrapper p {
+    margin: 10px 0 10px 0;
+    padding: auto;
+}
+
+.container p {
+    width: 80%;
+}
+
+.column>p {
+    margin: auto;
+    padding: auto;
+}
+
+.wrapper a:hover,
+.expand>div>ul>li a:hover {
+    text-decoration: inherit;
+    color: #ff8c40;
+}
+
+.expand>a {
+    margin: 0.3em;
+    padding: 0.4em;
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.wrapper {
+    padding-top: 0.5em;
+    padding-left: 1em;
+    background: rgba(230, 250, 250, 0.85);
+    display: none;
+}
+
+#wrapper1:target,
+#wrapper2:target,
+#wrapper3:target,
+#wrapper4:target,
+#wrapper5:target,
+#wrapper6:target,
+#wrapper7:target,
+#wrapper8:target,
+#wrapper9:target,
+#wrapper10:target,
+#wrapper11:target,
+#wrapper12:target,
+#wrapper13:target,
+#wrapper14:target,
+#wrapper15:target,
+#wrapper16:target,
+#wrapper17:target,
+#wrapper18:target {
+    display: inherit;
+}
+
+#responsive-iframe {
+    margin-bottom: 5%;
+    min-height: 400px;
+    width: 100%
+}
+
+.intro {
+    display: inline-block;
+}
+
+.column {
+    width: 33%;
+    text-align: center;
+    padding-top: 30px;
+    float: left;
+}
+
+.profile {
+    width: 50%;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target {
+    visibility: visible;
+    z-index: 19;
+    opacity: 1;
+}
+
+.popup {
+    margin: 5vh auto;
+    height: 90%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 70%;
+    position: relative;
+    z-index: 20;
+    transition: all .5s ease-in-out;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+    z-index: 20;
+}
+
+.unvisible {
+    display: none;
+}
+
+@media (max-width:1170px) {
+    .post-full-image {
+        border-radius: 0;
+        max-width: 100%;
+    }
+    .post-full-header {
+        max-width: 100%;
+    }
+    .post-full-image img {
+        height: 600px
+    }
+    .inner {
+        width: 100%;
+    }
+    .expand {
+        width: 100%;
+    }
+    .post-full-content {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    nav>ul {
+        max-width: 100%;
+    }
+}
+
+@media (max-width:800px) {
+    .post-full-image img {
+        height: 400px
+    }
+}
+
+
+
+
+/*
+Css for side menu
+*/
+
+.sidemenu li a {
+    text-decoration: none;
+    color: #232323;
+    transition: color 0.3s ease;
+    padding: 8px 60px 8px 30px;
+    display: block;
+}
+
+.sidemenu li:focus {
+    outline: none;
+}
+
+.sidemenu li a:hover {
+    color: tomato;
+    cursor: pointer;
+}
+
+.sidemenuToggle {
+    display: block;
+    position: relative;
+    top: 10px;
+    left: 5px;
+    z-index: 1;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.sidemenuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -6px;
+    left: 6px;
+    margin-left: -10px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 4;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+}
+
+
+/*
+ * Just a quick hamburger
+ */
+
+.sidemenuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    background: #232323;
+    border-radius: 4px;
+    z-index: 3;
+    transform-origin: 37px -12px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    top: 0px;
+}
+
+.sidemenuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+.sidemenuToggle span:nth-last-child(2) {
+    transform-origin: -131px -44px;
+}
+
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+
+.sidemenuToggle input:checked~span {
+    opacity: 1;
+    position: fixed;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    transform: rotate(45deg);
+    background: #232323;
+}
+
+
+/*
+ * But let's hide the middle one.
+ */
+
+.sidemenuToggle input:checked~.span2 {
+    opacity: 0;
+}
+
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+
+.sidemenuToggle input:checked~.span3 {
+    transform: rotate(-45deg) translate(-65px, 75px);
+}
+
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+
+.sidemenu {
+    position: fixed;
+    height: 1000vh;
+    top: 0px;
+    margin: -20px 0 0 -40px;
+    padding: 0;
+    padding-top: 125px;
+    background: #ededed;
+    list-style-type: none;
+    font-size: 16px;
+    line-height: 1.5;
+    box-shadow: 0px 0px 100px 0px lightslategrey;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    transform-origin: 0% 0%;
+    transform: translate(-100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.sidemenu li {
+    font-size: 17px;
+    border-bottom: 1px solid rgba(100, 100, 100, .15);
+}
+
+.sidemenu li ul {
+    background: rgba(0, 0, 0, .05);
+    list-style-type: none;
+    display: none;
+    padding: 0;
+}
+
+.sidemenu li ul li {
+    border-top: 1px solid rgba(100, 100, 100, .15);
+    border-bottom: none;
+    font-size: 15px;
+}
+
+.sidemenu li ul li a {
+    padding: 8px 60px 8px 45px;
+}
+
+
+/*
+ * And let's slide it in from the left
+ */
+
+.sidemenuToggle input:checked {
+    position: fixed;
+    margin-top: 67px;
+    top: 0px;
+    left: 30px;
+}
+
+.sidemenuToggle input:checked~ul {
+    transform: none;
+}
+
+.sidemenuToggle input:checked~span,
+.sidemenuToggle input:checked {
+
+}
+
+
+
+
+/*
+    Css for top tab menu (TSC Moodle)
+*/
+
+.topTabgroup{
+    margin-top: -15px;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-right: 140px;
+    position: absolute;
+    right: 0;
+}
+.topTabgroup li { 
+/* Makes a horizontal row */
+float: left; 
+
+/* So the psueudo elements can be
+ abs. positioned inside */
+position: relative; 
+}
+.topTabgroup li:first-of-type::before {
+position: absolute;
+width: 15px;
+height: 15px;
+left: -15px;
+border: 1px solid #a5e1ff;
+
+content: " ";
+border-top-right-radius: 15px;
+border-width: 1px 1px 0px 0px;
+box-shadow: 5px -5px 0 #a5e1ff;
+}
+.topTabgroup li:last-of-type::after {
+position: absolute;
+width: 15px;
+height: 15px;
+right: -15px;
+border: 1px solid #a5e1ff;
+
+content: " ";
+border-top-left-radius: 15px;
+border-width: 1px 0px 0px 1px;
+box-shadow: -5px -5px 0 #a5e1ff;
+}
+.topTabgroup a { 
+/* Make them block level
+ and only as wide as they need */
+float: right; 
+padding: 10px 12px; 
+text-decoration: none;
+
+/* Default colors */ 
+color: black;
+background: #a5e1ff; 
+}
+.topTabgroup li:nth-of-type(2) a { 
+    border-left: #9dd7f4 solid 1px;
+    border-right: #9dd7f4 solid 1px;
+    }
+.topTabgroup li:first-of-type a{
+    -webkit-border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    border-bottom-left-radius: 15px;
+    border-right: 1px #66ccff;
+}
+
+.topTabgroup li:last-of-type a{
+    -webkit-border-bottom-right-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.topTabgroup li:hover a {
+background-color: #66ccff;
+border-color: #a5e1ff;
+}
+.topTabgroup li:hover::before{
+box-shadow: 5px -5px 0 #66ccff;
+}
+.topTabgroup li:hover::after{
+box-shadow: -5px -5px 0 #66ccff;
+}
+
+@media (max-width:1170px){
+    .topTabgroup{
+        margin-right: 30px;
+    }
+}
+
+@media (max-width:840px){
+    .topTabgroup svg:first-of-type{
+        height: 2vw;
+        width: 10vw;
+    }
+    .topTabgroup li:nth-of-type(2) svg{
+        height: 2.2vw;
+        width: 3vw;
+    }
+    .topTabgroup svg:last-of-type{
+        height: 2.2vw;
+        width: 10vw;
+    }
+    .topTabgroup a{
+        padding: 7px 10px;
+    }
+}
+@media (max-width:560px){
+    .topTabgroup{
+        position: relative;
+        margin-bottom: -15px;
+    }
+}
+@media (max-width:500px){
+    .topTabgroup a{
+        padding: 0px 10px;
+    }
+    .topTabgroup li:first-of-type::before,
+    .topTabgroup li:last-of-type::after{
+        content: none;
+    }
+}
+@media (max-width:450px){
+    .topTabgroup{
+        position: relative;
+        margin-bottom: -10px;
+    }
+}
 /*
 
 Hey! You reached the end.

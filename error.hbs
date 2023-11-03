@@ -25,20 +25,7 @@ Keep this template as lightweight as you can!
 <body>
     <div class="site-wrapper">
 
-        <header class="site-header no-image">
-            <div class="site-nav-main outer">
-                <div class="inner">
-                    <nav class="site-nav-center">
-                        {{#if @site.logo}}
-                        <a class="site-nav-logo" href="{{@site.url}}"><img src="{{img_url @site.logo size="xs"}}"
-                                alt="{{@site.title}}" /></a>
-                        {{else}}
-                        <a class="site-nav-logo" href="{{@site.url}}">{{@site.title}}</a>
-                        {{/if}}
-                    </nav>
-                </div>
-            </div>
-        </header>
+        {{> "site-nav"}}
 
         <main class="outer error-content">
             <div class="inner">
@@ -46,10 +33,10 @@ Keep this template as lightweight as you can!
                 <section class="error-message">
                     <h1 class="error-code">{{statusCode}}</h1>
                     <p class="error-description">{{message}}</p>
-                    <a class="error-link" href="{{@site.url}}">Go to the front page →</a>
+                    <a class="error-link" href="{{@site.url}}">Zur Startseite →</a>
                 </section>
 
-                {{#if errorDetails}}
+                {{!--#if errorDetails}}
                 <section class="error-stack">
                     <h3>Theme errors</h3>
                     <ul class="error-stack-list">
@@ -65,7 +52,7 @@ Keep this template as lightweight as you can!
                         {{/foreach}}
                     </ul>
                 </section>
-                {{/if}}
+                {{/if--}}
 
             </div>
         </main>

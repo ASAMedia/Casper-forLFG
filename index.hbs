@@ -1,8 +1,8 @@
 {{!< default}}
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
-
-<div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
+{{> "site-nav"}}
+{{!--<div class="site-header-content outer{{#match @custom.header_style "Left aligned"}} left-aligned{{/match}}{{#unless @custom.show_publication_cover}}{{#match @custom.header_style "Hidden"}} no-content{{/match}}{{/unless}}">
 
     {{#if @custom.show_publication_cover}}
         {{#if @site.cover_image}}
@@ -35,20 +35,36 @@ into the {body} of the default.hbs template --}}
         </div>
     {{/match}}
 
-</div>
+</div>--}}
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-<div class="inner posts">
+<main id="site-main" class="site-main outer content">
+    <div class="container"> <br>
+        <div class="row">
+            <div class="inner posts left-content">
 
-    <div class="post-feed">
-        {{#foreach posts}}
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-            {{> "post-card"}}
-        {{/foreach}}
+                <div class="post-feed">
+                    {{#foreach posts}}
+                    {{#has tag="news"}}
+                    {{> "post-card"}}
+                    {{/has}}
+                    {{/foreach}}
+                </div>
+                {{pagination}}
+            </div>
+            <div class="right-submenu">
+                <div class="submenu">
+                    <a href="content/images/kalender_big.jpg?v={{date format=" MM"}}" target="_blank">
+                        <img src="content/images/kalender_small.jpg?v={{date format=" MM"}}" alt="kalender"
+                            width="100%">
+                    </a>
+                    <a href="https://tour.lyonel-feininger-gymnasium.de/" target="_blank">
+                        <img alt="tour" src="content/images/virtuellerSchulrundgang.jpg" width="100%"></a>
+                </div>
+            </div>
+        </div>
+
+
     </div>
-
-    {{pagination}}
-
-</div>
+    </div>
 </main>

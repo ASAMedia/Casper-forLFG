@@ -18,20 +18,6 @@ which templates loop over to generate a list of posts. --}}
             alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
             loading="lazy"
         />
-
-        {{#unless access}}
-        {{^has visibility="public"}}
-            <div class="post-card-access">
-                {{> "icons/lock"}}
-                {{#has visibility="members"}}
-                    Members only
-                {{else}}
-                    Paid-members only
-                {{/has}}
-            </div>
-        {{/has}}
-        {{/unless}}
-
     </a>
     {{/if}}
 
@@ -48,28 +34,18 @@ which templates loop over to generate a list of posts. --}}
                     {{/if}}
                 </div>
                 <h2 class="post-card-title">
-                    {{#unless access}}
-                    {{^has visibility="public"}}
-                        {{#unless feature_image}}
-                            {{> "icons/lock"}}
-                        {{/unless}}
-                    {{/has}}
-                    {{/unless}}
                     {{title}}
                 </h2>
             </header>
             {{#if excerpt}}
-                <div class="post-card-excerpt">{{excerpt}}</div>
+                <div class="post-card-excerpt">{{excerpt words="33"}}</div>
             {{/if}}
         </a>
 
         <footer class="post-card-meta">
-            <time class="post-card-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+            <time class="post-card-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMMM YYYY"}}</time>
             {{#if reading_time}}
                 <span class="post-card-meta-length">{{reading_time}}</span>
-            {{/if}}
-            {{#if @site.comments_enabled}}
-                {{comment_count}}
             {{/if}}
         </footer>
 
