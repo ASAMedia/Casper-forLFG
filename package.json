@@ -22,9 +22,9 @@
         "postship": "git fetch && gulp release"
     },
     "author": {
-        "name": "Ghost Foundation",
-        "email": "hello@ghost.org",
-        "url": "https://ghost.org/"
+        "name": "Axel Schorcht",
+        "email": "info@axel-schorcht.de",
+        "url": "https://axel-schorcht.de/"
     },
     "gpm": {
         "type": "theme",
