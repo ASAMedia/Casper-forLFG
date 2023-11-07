@@ -103,6 +103,31 @@
                 "type": "boolean",
                 "default": true,
                 "group": "post"
+            },
+            "announcement_bar_text": {
+                "type": "text",
+                "default": "Sign up for more like this!",
+                "group": "homepage"
+            },
+            "announcement_bar_link": {
+                "type": "text",
+                "default": "#",
+                "group": "homepage"
+            },
+            "announcement_bar_background_color": {
+                "type": "color",
+                "default": "#ff2f82",
+                "group": "homepage"
+            },
+            "announcement_bar_border_color": {
+                "type": "color",
+                "default": "#ff2f82",
+                "group": "homepage"
+            },
+            "announcement_bar_font_color": {
+                "type": "color",
+                "default": "#ffffff",
+                "group": "homepage"
             }
         }
     },

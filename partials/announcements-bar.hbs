@@ -1,0 +1,26 @@
+{{#if @custom.announcement_bar_text}}
+<div class="hellobar gh-inner site-wrapper">
+    <a class="post-link" href="{{@custom.announcement_bar_link}}">{{@custom.announcement_bar_text}}</a>
+</div>
+{{/if}}
+<style>
+    .hellobar {
+        width: 80%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .hellobar a {
+        background-color: {{@custom.announcement_bar_background_color}};
+        padding: 5px 10px;
+        border-radius: 10px;
+        color: {{@custom.announcement_bar_font_color}};
+        border: solid 3px {{@custom.announcement_bar_border_color}};
+        text-align: center;
+        margin-top : 10px;
+    }
+
+    .hellobar>.post-tink {
+        color: white ! important;
+    }
+</style>
