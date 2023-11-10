@@ -36,6 +36,7 @@ production stylesheet in assets/built/screen.css
     --color-yellow: #fecd35;
     --color-red: #f05230;
     --color-darkgrey: #3c484e;
+    --color-darkdarkgrey: #293135;
     --color-midgrey: #738a94;
     --color-lightgrey: #f1f1f1;
     --color-secondary-text: #979797;
@@ -224,7 +225,7 @@ production stylesheet in assets/built/screen.css
 :is(.site-logo, .site-title)+.site-description {
     max-width: 640px;
     margin-top: 16px;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 400;
     line-height: 1.4;
 }
@@ -247,7 +248,7 @@ production stylesheet in assets/built/screen.css
 }
 
 .has-cover .site-header-content.left-aligned :is(.site-logo, .site-title)+.site-description {
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 
 @media (min-width: 992px) {
@@ -276,11 +277,11 @@ production stylesheet in assets/built/screen.css
     }
 
     .site-title {
-        font-size: 3.4rem !important;
+        font-size: 2.8rem !important;
     }
 
     .site-description {
-        font-size: 2.2rem !important;
+        font-size: 2rem !important;
     }
 
     .site-logo+.site-description {
@@ -757,7 +758,7 @@ production stylesheet in assets/built/screen.css
     }
 
     #gh-head .gh-head-logo {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     #gh-head .gh-head-brand .gh-search {
@@ -922,7 +923,7 @@ production stylesheet in assets/built/screen.css
     box-shadow: 8px 14px 38px rgba(39, 44, 49, .06), 1px 3px 8px rgba(39, 44, 49, .03);
     -webkit-transition: all .5s ease;
     transition: all .5s ease;
-    margin: 0 20px 40px;
+    margin: 0 10px 20px;
 }
 
 .post-card:hover {
@@ -985,7 +986,7 @@ production stylesheet in assets/built/screen.css
 .post-card-content-link {
     position: relative;
     display: block;
-    color: var(--color-darkgrey);
+    color: var(--color-darkdarkgrey);
     -webkit-box-flex: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -1034,7 +1035,7 @@ production stylesheet in assets/built/screen.css
 
 .post-card-title {
     margin: 0;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 800;
     line-height: 1.2;
 }
@@ -1138,7 +1139,7 @@ production stylesheet in assets/built/screen.css
 
 @media (max-width:650px) {
     .post-feed {
-        padding-top: 5vw
+        padding-top: 2vw
     }
     .post-card {
         margin: 0 2px 5vw
@@ -1469,7 +1470,7 @@ production stylesheet in assets/built/screen.css
 
 .post-full-content h3 {
     margin: .5em 0 .2em;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700
 }
 
@@ -1481,7 +1482,7 @@ production stylesheet in assets/built/screen.css
 
 .post-full-content h4 {
     margin: .5em 0 .2em;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 700
 }
 
@@ -1570,7 +1571,6 @@ make sure this only happens on large viewports / desktop-ish devices.
         display: grid;
         grid-gap: 4vmin;
         grid-template-columns: repeat(3, 1fr);
-        border-top: 0;
     }
 
     .post-card-large:not(.no-image) .post-card-header {
@@ -1603,7 +1603,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 
     .post-card-large .post-card-title {
         margin-top: 0;
-        font-size: 3.4rem;
+        font-size: 2.6rem;
         line-height: 1.05;
     }
 
@@ -1646,7 +1646,7 @@ make sure this only happens on large viewports / desktop-ish devices.
     }
 
     .post-card.dynamic .post-card-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 }
 
@@ -2285,7 +2285,7 @@ iframe.instagram-media+script+ :not([id]) {
     width: 100%;
     max-width: 720px;
     font-weight: 800;
-    font-size: 3.4rem;
+    font-size: 2.6rem;
 }
 
 .comments .comment-count {
@@ -2465,11 +2465,11 @@ iframe.instagram-media+script+ :not([id]) {
 }
 
 .site-footer a {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(58, 58, 58, 0.7);
 }
 
 .site-footer a:hover {
-    color: rgba(255, 255, 255, 1);
+    color: rgb(82, 82, 82);
     text-decoration: none;
 }
 
@@ -3483,7 +3483,7 @@ nav ul>li>ul>li a {
 nav a {
     text-decoration: none;
     color: black;
-    font-size: 1.4em;
+    font-size: 2.2rem;
 }
 
 .container {
@@ -3704,7 +3704,7 @@ body {
     text-align: center;
     border-radius: 0em 0em 1em 1em;
     box-shadow: 0.2em 0.2em 1em 0em rgba(202, 91, 17, 0.25);
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 .expand {
@@ -4552,19 +4552,22 @@ Css for side menu
 
 .related-wrapper {
     padding-top: 48px;
-    padding-bottom: 64px;
-    margin-top: 96px;
+    padding-bottom: 34px;
+    margin-top: 36px;
     background-color: var(--color-lightgrey);
 }
 
 .related-title {
-    margin: 20px 0 40px;
+    margin: 20px 20px 40px;
     font-size: 14px;
     color: var(--secondary-text-color);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
+.post-full-content .post-content p{
+    min-height: 5px;
+}
 /*
 
 Hey! You reached the end.

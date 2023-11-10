@@ -5,7 +5,7 @@
 {{/if}}
 <style>
     .hellobar {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         padding: 0;
     }
@@ -18,9 +18,16 @@
         border: solid 3px {{@custom.announcement_bar_border_color}};
         text-align: center;
         margin-top : 10px;
+        width: 90%;
     }
 
     .hellobar>.post-tink {
         color: white ! important;
+    }
+
+    @media (max-width:1170px) {
+        .hellobar a {
+            width: 100%;
+        }
     }
 </style>
