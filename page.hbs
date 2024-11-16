@@ -13,6 +13,13 @@
 
                     <h1 class="article-title">{{title}}</h1>
 
+                    {{#match title "Mellingen"}}
+                    <p class="VPlastMofified">{{lastmodified "/home/default/vertretungsplan/data/database.sql"}}</p>
+                    {{/match}}
+                    {{#match title "Berlstedt"}}
+                    <p class="VPlastMofified">{{lastmodified "/home/default/vertretungsplan/data/database.sql"}}</p>
+                    {{/match}}
+
                     {{#if feature_image}}
                     <figure class="article-image">
                         {{!-- This is a responsive image, it loads different sizes depending on device
