@@ -4072,6 +4072,24 @@ Css for side menu
 
 
 /*
+    Css for VP lastmodified
+*/
+.article-title{
+    float: left;
+    margin-top: 2.8rem !important;
+    min-width: 70% !important;
+    max-width: 75%;
+}
+
+.VPlastMofified{
+    float: right;
+    margin: 2.8rem 0 0 !important;
+    min-width: 20% !important;
+    max-width: 25%;
+}
+
+
+/*
     Css for top tab menu (TSC Moodle)
 */
 
