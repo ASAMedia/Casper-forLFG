@@ -14,10 +14,10 @@
                     <h1 class="article-title">{{title}}</h1>
 
                     {{#match title "Mellingen"}}
-                    <p class="VPlastMofified">{{lastmodified "/home/default/vertretungsplan/data/database.sql"}}</p>
+                    <p class="VPlastMofified" title="gültig für Berlstedt und Mellingen">{{lastmodified "/home/default/vertretungsplan/data/database.sql"}}</p>
                     {{/match}}
                     {{#match title "Berlstedt"}}
-                    <p class="VPlastMofified">{{lastmodified "/home/default/vertretungsplan/data/database.sql"}}</p>
+                    <p class="VPlastMofified" title="gültig für Berlstedt und Mellingen">{{lastmodified "/home/default/vertretungsplan/data/database.sql"}}</p>
                     {{/match}}
 
                     {{#if feature_image}}
