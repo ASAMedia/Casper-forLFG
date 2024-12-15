@@ -4075,7 +4075,7 @@ Css for side menu
     Css for VP lastmodified
 */
 .article-title{
-    float: left;
+    display: inline-block;
     margin-top: 2.8rem !important;
     margin-bottom: 3rem !important;
     min-width: 70% !important;
@@ -4083,8 +4083,8 @@ Css for side menu
 }
 
 .VPlastMofified{
-    float: right;
     text-align: right;
+    display: inline-block;
     margin: 2.8rem 0 3rem 0 !important;
     min-width: 20% !important;
     max-width: 25%;
