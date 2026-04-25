@@ -2,16 +2,15 @@ const {series, watch, src, dest, parallel} = require('gulp');
 const pump = require('pump');
 const path = require('path');
 const releaseUtils = require('@tryghost/release-utils');
-const inquirer = require('inquirer');
 
 // gulp plugins and utils
 const livereload = require('gulp-livereload');
 const postcss = require('gulp-postcss');
-const zip = require('gulp-zip');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
-const beeper = require('beeper');
 const fs = require('fs');
+
+// ESM-only packages — loaded via dynamic import below: beeper, gulp-zip, inquirer
 
 // postcss plugins
 const autoprefixer = require('autoprefixer');
@@ -31,7 +30,7 @@ function serve(done) {
 const handleError = (done) => {
     return function (err) {
         if (err) {
-            beeper();
+            import('beeper').then(({default: beeper}) => beeper()).catch(() => {});
         }
         return done(err);
     };
@@ -72,8 +71,9 @@ function js(done) {
     ], handleError(done));
 }
 
-function zipper(done) {
+async function zipper(done) {
     const filename = require('./package.json').name + '.zip';
+    const {default: zip} = await import('gulp-zip');
 
     pump([
         src([
@@ -120,6 +120,7 @@ exports.release = async () => {
     }
 
     try {
+        const {default: inquirer} = await import('inquirer');
         const result = await inquirer.prompt([{
             type: 'input',
             name: 'compatibleWithGhost',
